@@ -40,7 +40,7 @@ export class NotCondition extends Condition {
     }
 
     evaluate(): boolean {
-        return this.condition.isMet();
+        return !this.condition.isMet();
     }
 
     setup(): void {
