@@ -15,7 +15,7 @@ export abstract class Condition {
     
     conditionChangedEvent(): RBXScriptSignal<ConditionChanged> {return this._onConditionChange.Event;}
     
-    isCompleted() {return this._isMet;}
+    isMet() {return this._isMet;}
     
     abstract setup() : void;
     
@@ -29,6 +29,24 @@ export abstract class Condition {
     }
     
     abstract evaluate(): boolean;
+}
+
+export class NotCondition extends Condition {
+    private condition: Condition;
+
+    constructor(condition:Condition) {
+        super();
+        this.condition = condition;
+    }
+
+    evaluate(): boolean {
+        return this.condition.isMet();
+    }
+
+    setup(): void {
+        this.condition.conditionChangedEvent().Connect(() => this.refresh());
+    }
+
 }
 
 export class AnyCondition extends Condition {
