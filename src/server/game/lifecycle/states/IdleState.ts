@@ -4,7 +4,7 @@ import {Condition} from "../../objective/condition";
 import {MinPlayersCondition} from "../../objective/playerConditions";
 import {Transition} from "../../utility/transition";
 
-class IdleState extends AbstractState<GameState> {
+export class IdleState extends AbstractState<GameState> {
     private transition: Transition<GameState> | undefined;
     
     constructor() {
