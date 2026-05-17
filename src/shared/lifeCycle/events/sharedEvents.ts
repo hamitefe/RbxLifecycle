@@ -1,0 +1,1 @@
+export type ConditionChanged = (condition: boolean) => void;

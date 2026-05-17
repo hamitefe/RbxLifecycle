@@ -1,4 +1,4 @@
-import {ConditionChanged} from "../events/events";
+import {ConditionChanged} from "../events/sharedEvents";
 
 export abstract class Condition {
     private _isMet: boolean = false;
