@@ -17,5 +17,8 @@
     "@rbxts/types": "^1.0.919",
     "roblox-ts": "^3.0.0",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@rbxts/goodsignal": "^1.0.0"
   }
 }

@@ -1,8 +1,9 @@
 import {ConditionChanged} from "../events/sharedEvents";
+import Signal from "@rbxts/goodsignal";
 
 export abstract class Condition {
     private _isMet: boolean = false;
-    private _onConditionChange: BindableEvent<ConditionChanged> = new Instance("BindableEvent");
+    private _onConditionChange: Signal<ConditionChanged> = new Signal<ConditionChanged>();
     private _isActive: boolean = false;
     
     public isActive() : boolean {return this._isActive;}
@@ -13,7 +14,7 @@ export abstract class Condition {
         
     }
     
-    conditionChangedEvent(): RBXScriptSignal<ConditionChanged> {return this._onConditionChange.Event;}
+    conditionChangedEvent(): Signal<ConditionChanged> {return this._onConditionChange;}
     
     isMet() {return this._isMet;}
     
